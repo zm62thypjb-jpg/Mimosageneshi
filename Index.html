@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        /* Estilos generales de la página */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6; /* Un color rosa suave */
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
+        }
+
+        /* Contenedor del contenido inicial de la pregunta */
+        #contenido-principal {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Estilo del texto principal */
+        h1 {
+            color: #ff4d4d;
+            font-size: 3rem;
+            margin-bottom: 10px; 
+        }
+
+        /* Contenedor especial para tu GIF de Tenor */
+        #gif-container {
+            width: 100%;
+            max-width: 250px; /* Evita que el GIF se haga gigante */
+            margin: 0 auto 30px auto;
+        }
+
+        /* Contenedor de los botones */
+        .botones-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Estilos base de los botones */
+        button {
+            font-size: 1.5rem;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        /* Botón de "Sí" */
+        #btn-si {
+            background-color: #4CAF50;
+            color: white;
+            z-index: 10; 
+        }
+
+        #btn-si:hover {
+            transform: scale(1.1); 
+        }
+
+        /* Botón de "No" */
+        #btn-no {
+            background-color: #f44336;
+            color: white;
+            position: absolute; 
+        }
+
+        /* Pantalla de éxito oculta por defecto */
+        #mensaje-exito {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #mensaje-exito h2 {
+            color: #ff4d4d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Imagen GIF final */
+        #mensaje-exito img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contenido-principal">
+        <h1>¿Me perdonas mi chinita? 🥺</h1>
+        
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/b5h7wKgR/IMG-5250.jpg" alt="IMG 5250" border="0"></a>. 
+
+
+        <div class="botones-container">
+            <button id="btn-si">Sí</button>
+            <button id="btn-no">No</button>
+        </div>
+    </div>
+
+    <div id="mensaje-exito">
+        <h2>¡no lo volvere hacer mi vidaa! ❤️<br>Te quiero muchoooo<a href="https://ibb.co/G489LM20"><img src="https://i.ibb.co/W4M0wzy6/0a048b68-2e3f-476a-8c17-bea427604f44.jpg" alt="0a048b68-2e3f-476a-8c17-bea427604f44" border="0"></a>
+
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnSi = document.getElementById('btn-si');
+        const contenidoPrincipal = document.getElementById('contenido-principal');
+        const mensajeExito = document.getElementById('mensaje-exito');
+
+        btnNo.style.left = "60%"; 
+
+        const moverBoton = () => {
+            const anchoVentana = window.innerWidth;
+            const altoVentana = window.innerHeight;
+
+            const maxLeft = anchoVentana - btnNo.offsetWidth - 20;
+            const maxTop = altoVentana - btnNo.offsetHeight - 20;
+
+            const randomX = Math.floor(Math.random() * maxLeft);
+            const randomY = Math.floor(Math.random() * maxTop);
+
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = randomX + 'px';
+            btnNo.style.top = randomY + 'px';
+        };
+
+        btnNo.addEventListener('mouseover', moverBoton); 
+        btnNo.addEventListener('touchstart', moverBoton); 
+        btnNo.addEventListener('click', moverBoton); 
+
+        btnSi.addEventListener('click', () => {
+            contenidoPrincipal.style.display = 'none';
+            mensajeExito.style.display = 'flex';
+        });
+    </script>
+
+</body>
+</html>
